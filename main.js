@@ -45,6 +45,28 @@ new Vue({
             }
             
         },
-        
+        specialAttack(){
+            this.hits = 'HITS';
+            this.monster = 'MONSTER';
+            this.displayTwo = true;
+            this.number = (Math.round(Math.random()*10)) + 1;
+            this.numberTwo = (Math.round(Math.random()*10)) + 2;
+            this.myScore = this.myScore - this.number;
+            this.monsterScore = this.monsterScore - this.numberTwo;
+            this.width = this.monsterScore;
+            if(this.myScore <= 0){
+                alert('Game over!');
+                this.myScore = 0;
+                this.displayOne = true;
+                this.displayTwo = false;
+                this.display = false;
+            }else if (this.monsterScore <= 0){
+                alert('You win!');
+                this.monsterScore = 0;
+                this.displayOne = true;
+                this.displayTwo = false;
+                this.display = false;
+            }
+        },
     }
 })
